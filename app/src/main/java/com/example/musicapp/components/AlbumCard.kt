@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -19,10 +18,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -30,21 +29,23 @@ import coil3.compose.AsyncImage
 import com.example.musicapp.models.Album
 import com.example.musicapp.ui.theme.DarkPurlple
 import com.example.musicapp.ui.theme.MusicAppTheme
+import com.example.musicapp.ui.theme.Purple40
 
 @Composable
 fun AlbumCard(album: Album){
     Box (
         modifier = Modifier
-            .padding(horizontal = 7.dp)
+            .padding(horizontal = 3.dp)
             .width(180.dp)
             .height(170.dp)
-            ,
+            .padding(7.dp),
         contentAlignment = Alignment.BottomEnd
     ){
         AsyncImage(
             modifier = Modifier
                 .fillMaxSize()
-                .clip(RoundedCornerShape(16.dp)),
+                .clip(RoundedCornerShape(16.dp))
+                .background(Purple40),
             model = album.image,
             contentScale = ContentScale.Crop,
             contentDescription = album.title
@@ -66,10 +67,11 @@ fun AlbumCard(album: Album){
                 Text(
                     text = album.title.take(15),
                     color = Color.White,
-                    fontSize = 13.sp
+                    fontSize = 13.sp,
+                    fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = album.artist,
+                    text = album.artist.take(15),
                     color = Color.LightGray,
                     fontSize = 10.sp
                 )
