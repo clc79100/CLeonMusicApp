@@ -13,6 +13,7 @@ fun RecentlyPlayed(albums: List<Album>, navController: NavController){
         items(albums){ album ->
             RecentlyPlayedAlbum(
                 album= album,
+                artistText = " • Popular Song",
                 onClick= {
                     navController.navigate(AlbumDetailScreenRoute(album.id))
                 }

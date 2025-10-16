@@ -74,7 +74,9 @@ fun HomeScreen(
         contentAlignment = Alignment.Center
     ){
         if (loading){
-            Box(modifier = Modifier.fillMaxSize(),contentAlignment = Alignment.Center){
+            Box(modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ){
                 CircularProgressIndicator(color = Amethyst)
             }
         } else {
@@ -96,13 +98,15 @@ fun HomeScreen(
 
                 }
             }
-            Player(Album(
+            Player(
+                Album(
                 "1234",
                 "Hi This is Flume",
                 "Flume",
                 "Un Mixtape Experimental influenciado por el HyperPop, Wonky y Deconstructive Club",
                 "https://cdn2.albumoftheyear.org/375x0/album/144918-hi-this-is-flume.jpg"
-            ))
+                )
+            )
         }
 
     }

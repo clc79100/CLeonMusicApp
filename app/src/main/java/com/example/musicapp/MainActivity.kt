@@ -5,12 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -20,7 +16,7 @@ import com.example.musicapp.routes.HomeScreenRoute
 import com.example.musicapp.screens.AlbumDetailScreen
 import com.example.musicapp.screens.HomeScreen
 import com.example.musicapp.ui.theme.MusicAppTheme
-
+//TODO: Optimizacion de Icono Play. Documnetacion de secciones y componentes
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,28 +35,12 @@ class MainActivity : ComponentActivity() {
 
                         composable<AlbumDetailScreenRoute>{ backStack ->
                             val args = backStack.toRoute<AlbumDetailScreenRoute>()
-                            AlbumDetailScreen(innerPadding, args.id)
+                            AlbumDetailScreen(innerPadding,navController, args.id)
                         }
                     }
 
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MusicAppTheme {
-        Greeting("Android")
     }
 }

@@ -27,7 +27,7 @@ import com.example.musicapp.ui.theme.MusicAppTheme
 import com.example.musicapp.ui.theme.Purple40
 
 @Composable
-fun RecentlyPlayedAlbum(album: Album, onClick: () -> Unit){
+fun RecentlyPlayedAlbum(album: Album?, onClick: () -> Unit, titleText: String = "",artistText: String = ""){
     Row(
         modifier = Modifier
             .padding(vertical = 10.dp)
@@ -42,9 +42,9 @@ fun RecentlyPlayedAlbum(album: Album, onClick: () -> Unit){
                 .size(55.dp)
                 .clip(RoundedCornerShape(14.dp))
                 .background(Purple40),
-            model = album.image,
+            model = album?.image,
             contentScale = ContentScale.Crop,
-            contentDescription = album.title
+            contentDescription = album?.title ?: "error"
         )
         Column(
             modifier = Modifier
@@ -52,12 +52,12 @@ fun RecentlyPlayedAlbum(album: Album, onClick: () -> Unit){
                 .weight(1f)
         ){
             Text(
-                text = album.title,
+                text = album?.title?.plus(titleText) ?: "error",
                 fontSize = 15.sp,
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = album.artist+" • Popular Song",
+                text = album?.artist?.plus(artistText) ?: "error",
                 color = Color.Gray,
                 fontSize = 13.sp
             )

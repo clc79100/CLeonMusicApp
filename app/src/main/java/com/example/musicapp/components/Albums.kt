@@ -1,4 +1,5 @@
 package com.example.musicapp.components
+
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items

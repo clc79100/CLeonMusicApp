@@ -44,13 +44,14 @@ fun Player(album: Album?){
 
         ){
             AsyncImage(
+                model = album?.image,
+                contentScale = ContentScale.Crop,
+                contentDescription = album?.title ?: "Error",
                 modifier = Modifier
                     .size(50.dp)
                     .clip(RoundedCornerShape(14.dp))
                     .background(Purple40),
-                model = album?.image,
-                contentScale = ContentScale.Crop,
-                contentDescription = album?.title ?: "Error"
+
             )
             Column(
                 modifier = Modifier
