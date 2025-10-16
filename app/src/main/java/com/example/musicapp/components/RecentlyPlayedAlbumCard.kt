@@ -1,6 +1,7 @@
 package com.example.musicapp.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
@@ -26,13 +27,14 @@ import com.example.musicapp.ui.theme.MusicAppTheme
 import com.example.musicapp.ui.theme.Purple40
 
 @Composable
-fun RecentlyPlayedAlbum(album: Album){
+fun RecentlyPlayedAlbum(album: Album, onClick: () -> Unit){
     Row(
         modifier = Modifier
             .padding(vertical = 10.dp)
             .clip(RoundedCornerShape(20.dp))
             .background(Color.White)
-            .padding(10.dp),
+            .padding(10.dp)
+            .clickable{onClick()},
         verticalAlignment = Alignment.CenterVertically
     ) {
         AsyncImage(
@@ -80,6 +82,6 @@ fun RecentlyPlayedAlbumCardPreview(){
             "Flume",
             "Un Mixtape Experimental influenciado por el HyperPop, Wonky y Deconstructive Club",
             "https://upload.wikimedia.org/wikipedia/en/1/16/Flume_-_Hi_This_Is_Flume.png"
-        ))
+        ), {})
     }
 }

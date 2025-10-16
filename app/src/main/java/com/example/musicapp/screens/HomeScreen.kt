@@ -87,12 +87,12 @@ fun HomeScreen(
 
                 Column (modifier = Modifier.weight(1f)) {
                     TitleSection("Albums")
-                    Albums(albums)
+                    Albums(albums, navController)
                 }
 
                 Column(modifier = Modifier.weight(2f)){
                     TitleSection("Recently Played")
-                    RecentlyPlayed(albums)
+                    RecentlyPlayed(albums, navController)
 
                 }
             }

@@ -29,7 +29,7 @@ import com.example.musicapp.ui.theme.DarkPurlple
 import com.example.musicapp.ui.theme.Purple40
 
 @Composable
-fun Player(album: Album){
+fun Player(album: Album?){
     Column() {
         Box (modifier = Modifier.weight(1f))
         Row(
@@ -48,9 +48,9 @@ fun Player(album: Album){
                     .size(50.dp)
                     .clip(RoundedCornerShape(14.dp))
                     .background(Purple40),
-                model = album.image,
+                model = album?.image,
                 contentScale = ContentScale.Crop,
-                contentDescription = album.title
+                contentDescription = album?.title ?: "Error"
             )
             Column(
                 modifier = Modifier
@@ -58,13 +58,13 @@ fun Player(album: Album){
                     .weight(1f)
             ){
                 Text(
-                    text = album.title,
+                    text = album?.title ?: "Error",
                     color = Color.White,
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = album.artist,
+                    text = album?.artist ?: "Error",
                     color = Color.LightGray,
                     fontSize = 13.sp
                 )

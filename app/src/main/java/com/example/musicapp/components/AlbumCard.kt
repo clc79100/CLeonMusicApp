@@ -1,5 +1,6 @@
 package com.example.musicapp.components
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -32,13 +33,14 @@ import com.example.musicapp.ui.theme.MusicAppTheme
 import com.example.musicapp.ui.theme.Purple40
 
 @Composable
-fun AlbumCard(album: Album){
+fun AlbumCard(album: Album, onClick: () -> Unit){
     Box (
         modifier = Modifier
             .padding(horizontal = 3.dp)
             .width(180.dp)
             .height(170.dp)
-            .padding(7.dp),
+            .padding(7.dp)
+            .clickable{onClick()},
         contentAlignment = Alignment.BottomEnd
     ){
         AsyncImage(
@@ -63,7 +65,8 @@ fun AlbumCard(album: Album){
             horizontalArrangement = Arrangement.SpaceBetween
 
         ){
-            Column(){
+            Column()
+            {
                 Text(
                     text = album.title.take(15),
                     color = Color.White,
@@ -103,6 +106,6 @@ fun AlbumCardPreview(){
             "Flume",
             "Un Mixtape Experimental influenciado por el HyperPop, Wonky y Deconstructive Club",
             "https://upload.wikimedia.org/wikipedia/en/1/16/Flume_-_Hi_This_Is_Flume.png"
-        ))
+        ), { })
     }
 }
