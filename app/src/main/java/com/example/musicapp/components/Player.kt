@@ -1,6 +1,7 @@
 package com.example.musicapp.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -39,7 +40,8 @@ fun Player(album: Album?){
                 .height(80.dp)
                 .clip(RoundedCornerShape(26.dp))
                 .background(DarkPurlple)
-                .padding(horizontal = 18.dp),
+                .padding(horizontal = 18.dp)
+                .clickable{},
             verticalAlignment = Alignment.CenterVertically,
 
         ){

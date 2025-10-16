@@ -14,7 +14,6 @@ fun Albums(albums: List<Album>, navController: NavController){
     LazyRow(
         modifier = Modifier
             .fillMaxSize()
-
     ) {
         items(albums){ album ->
             AlbumCard(
